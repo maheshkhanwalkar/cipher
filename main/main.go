@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -33,8 +34,15 @@ func main() {
 				break
 			}
 
-			// TODO parse the inputted line
-			_ = scan.Text()
+			line := scan.Text()
+			pieces := strings.Split(line, " ")
+
+			switch pieces[0] {
+			// TODO add cases for each supported cipher
+			default:
+				fmt.Println("Error. Unknown cipher specified!")
+				continue
+			}
 		}
 	}
 }
