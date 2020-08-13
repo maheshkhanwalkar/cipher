@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"cipher/types"
 	"flag"
 	"fmt"
 	"os"
@@ -37,10 +38,10 @@ func main() {
 			line := scan.Text()
 			pieces := strings.Split(line, " ")
 
-			switch pieces[0] {
-			// TODO add cases for each supported cipher
-			default:
-				fmt.Println("Error. Unknown cipher specified!")
+			cipher := types.GetCipherByName(pieces[0])
+
+			if cipher == nil {
+				fmt.Println("Error. No cipher by that name supported")
 				continue
 			}
 		}
